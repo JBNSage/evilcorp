@@ -25,9 +25,10 @@ namespace CoreBancario
 
         public static void MenuPrincipal(byte lectSeleccion)
         {
+            lectSeleccion = 0;
             do
             {
-                //Console.Clear();
+                
                 Console.WriteLine("Menú del core", Color.Green);
                 Console.WriteLine("-----------------------------------------------------------");
                 Console.WriteLine("1- Manejo de usuarios");
@@ -60,18 +61,28 @@ namespace CoreBancario
             switch (lectSeleccion)
             {
                 case 1:
+                    
+                    Console.Clear();
                     EscribirOpciones("usuario");
                     break;
                 case 2:
+                    
+                    Console.Clear();
                     EscribirOpciones("perfil");
                     break;
                 case 3:
+                    
+                    Console.Clear();
                     EscribirOpciones("cliente");
                     break;
                 case 4:
+                   
+                    Console.Clear();
                     EscribirOpciones("cuenta");
                     break;
                 case 5:
+                    
+                    Console.Clear();
                     EscribirOpciones("transacción");
                     break;
 
@@ -80,35 +91,122 @@ namespace CoreBancario
 
         public static void EscribirOpciones(string opcion)
         {
-            Console.Clear();
-            Console.WriteLine("Menú del CRUD", Color.Green);
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine($"1- Crear {opcion}");
-            Console.WriteLine($"2- Consultar {opcion}");
-            Console.WriteLine($"3- Actualizar {opcion}");
-            Console.WriteLine($"4- Eliminar {opcion}");
-            Console.WriteLine("5- Atrás");
-            lectSeleccion = Convert.ToByte(Console.ReadLine());
-            SwitchCrud(lectSeleccion);
+            lectSeleccion = 0;
+            do
+            {
+                Console.WriteLine("Menú del CRUD", Color.Green);
+                Console.WriteLine("-----------------------------------------------------------");
+                Console.WriteLine($"1- Crear {opcion}");
+                Console.WriteLine($"2- Consultar {opcion}");
+                Console.WriteLine($"3- Actualizar {opcion}");
+                Console.WriteLine($"4- Eliminar {opcion}");
+                Console.WriteLine("5- Atrás");
+                try
+                {
+                    lectSeleccion = Convert.ToByte(Console.ReadLine());
+                    if (lectSeleccion < 1 || lectSeleccion > 5)
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Introduzca una opción válida", Color.Red);
+
+                }
+            } while (lectSeleccion < 1 || lectSeleccion > 5);
+            
+            
+            SwitchCrud(lectSeleccion, opcion);
         }
 
-        public static void SwitchCrud(byte lectSeleccion)
+        public static void SwitchCrud(byte lectSeleccion, string opcion)
         {
             switch (lectSeleccion)
             {
                 case 1:
-                    
+                    switch (opcion)
+                    {
+                        case "usuario":
+                            break;
+
+                        case "perfil":
+                            break;
+
+                        case "cliente":
+                            break;
+
+                        case "cuenta":
+                            break;
+
+                        case "transacción":
+                            break;
+                    }
+
                     break;
                 case 2:
-                    
+                    switch (opcion)
+                    {
+                        case "usuario":
+                            break;
+
+                        case "perfil":
+                            break;
+
+                        case "cliente":
+                            break;
+
+                        case "cuenta":
+                            break;
+
+                        case "transacción":
+                            break;
+                    }
+
                     break;
                 case 3:
-                    
+                    switch (opcion)
+                    {
+                        case "usuario":
+                            break;
+
+                        case "perfil":
+                            break;
+
+                        case "cliente":
+                            break;
+
+                        case "cuenta":
+                            break;
+
+                        case "transacción":
+                            break;
+                    }
                     break;
+
                 case 4:
-                    
+                    switch (opcion)
+                    {
+                        case "usuario":
+                            break;
+
+                        case "perfil":
+                            break;
+
+                        case "cliente":
+                            break;
+
+                        case "cuenta":
+                            break;
+
+                        case "transacción":
+                            break;
+                    }
+
                     break;
                 case 5:
+                  
                     Console.Clear();
                     MenuPrincipal(lectSeleccion);
                     break;
