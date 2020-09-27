@@ -27,7 +27,7 @@ namespace CoreBancario
         {
             do
             {
-                Console.Clear();
+                //Console.Clear();
                 Console.WriteLine("Menú del core", Color.Green);
                 Console.WriteLine("-----------------------------------------------------------");
                 Console.WriteLine("1- Manejo de usuarios");
@@ -109,6 +109,7 @@ namespace CoreBancario
                     
                     break;
                 case 5:
+                    Console.Clear();
                     MenuPrincipal(lectSeleccion);
                     break;
 
