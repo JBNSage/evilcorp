@@ -129,9 +129,57 @@ namespace CoreBancario
                     switch (opcion)
                     {
                         case "usuario":
+
+                            ConsoleKeyInfo continuar;
+                            do
+                            {
+                                Usuario usuario = new Usuario("Crear");
+                                usuario.CrearUsuario();
+
+                                Console.WriteLine("Registrar otro usuario: s");
+                                Console.WriteLine("Salir: n");
+
+                                do
+                                {
+                                    continuar = Console.ReadKey(true);
+                                    if (continuar.Key == ConsoleKey.S || continuar.Key == ConsoleKey.N)
+                                    {
+                                        Console.WriteLine(continuar.KeyChar);
+                                        break;
+                                    }
+                                } while (true);
+
+                            } while (continuar.Key == ConsoleKey.S);
+
+                            Console.Clear();
+                            EscribirOpciones(opcion);
+
                             break;
 
                         case "perfil":
+                            do
+                            {
+                                Perfil perfil = new Perfil("Crear");
+
+                                perfil.CrearPerfil();
+
+                                Console.WriteLine("Registrar otro perfil: s");
+                                Console.WriteLine("Salir: n");
+
+                                do
+                                {
+                                    continuar = Console.ReadKey(true);
+                                    if (continuar.Key == ConsoleKey.S || continuar.Key == ConsoleKey.N)
+                                    {
+                                        Console.WriteLine(continuar.KeyChar);
+                                        break;
+                                    }
+                                } while (true);
+
+                            } while (continuar.Key == ConsoleKey.S);
+
+                            Console.Clear();
+                            EscribirOpciones(opcion);
                             break;
 
                         case "cliente":
@@ -169,9 +217,56 @@ namespace CoreBancario
                     switch (opcion)
                     {
                         case "usuario":
+                            ConsoleKeyInfo continuar;
+                            do
+                            {
+                                Usuario usuario = new Usuario("Actualizar");
+                                usuario.ActualizarUsuario();
+
+                                Console.WriteLine("Actualizar otro usuario: s");
+                                Console.WriteLine("Salir: n");
+
+                                do
+                                {
+                                    continuar = Console.ReadKey(true);
+                                    if (continuar.Key == ConsoleKey.S || continuar.Key == ConsoleKey.N)
+                                    {
+                                        Console.WriteLine(continuar.KeyChar);
+                                        break;
+                                    }
+                                } while (true);
+
+                            } while (continuar.Key == ConsoleKey.S);
+
+                            Console.Clear();
+                            EscribirOpciones(opcion);
+
                             break;
 
                         case "perfil":
+                            do
+                            {
+                                Perfil perfil = new Perfil("Actualizar");
+
+                                perfil.ActualizarPerfil();
+
+                                Console.WriteLine("Actualizar otro perfil: s");
+                                Console.WriteLine("Salir: n");
+
+                                do
+                                {
+                                    continuar = Console.ReadKey(true);
+                                    if (continuar.Key == ConsoleKey.S || continuar.Key == ConsoleKey.N)
+                                    {
+                                        Console.WriteLine(continuar.KeyChar);
+                                        break;
+                                    }
+                                } while (true);
+
+                            } while (continuar.Key == ConsoleKey.S);
+
+                            Console.Clear();
+                            EscribirOpciones(opcion);
                             break;
 
                         case "cliente":
