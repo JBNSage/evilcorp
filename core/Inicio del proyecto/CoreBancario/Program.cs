@@ -11,15 +11,28 @@ namespace CoreBancario
     class Program
     {
         static byte lectSeleccion = 0;
+        
         static void Main(string[] args)
         {
-            
-            //llamar al menú principal para la escritura de las opciones
-            MenuPrincipal(lectSeleccion);
+            //Instanciar un usuario para hacer el LogIn
+            Usuario usuario = new Usuario();
+            while (usuario.LogIn()== false)
+            {
+                Console.ReadKey();
+            }
+
+            //Llamar al menú principal para la escritura de las opciones
+            Console.Clear();
+            MenuPrincipal(lectSeleccion);     
+            Console.ReadKey();
 
             
-            Console.ReadKey();
+            //Juan Luis: Usuarios
+            //Joaquin: Clientes
+            //Amaury: Cuentas
+            //Todos: Transacciones
         }
+        
 
         
 
@@ -31,15 +44,14 @@ namespace CoreBancario
                 
                 Console.WriteLine("Menú del core", Color.Green);
                 Console.WriteLine("-----------------------------------------------------------");
-                Console.WriteLine("1- Manejo de usuarios");
-                Console.WriteLine("2- Manejo de Perfiles");
-                Console.WriteLine("3- Manejo de clientes");
-                Console.WriteLine("4- Manejo de Cuentas");
-                Console.WriteLine("5- Transacciones");
+                Console.WriteLine("1- Manejo de Usuarios");
+                Console.WriteLine("2- Manejo de Clientes");
+                Console.WriteLine("3- Manejo de Cuentas");
+                Console.WriteLine("4- Transacciones");
                 try
                 {
                     lectSeleccion = Convert.ToByte(Console.ReadLine());
-                    if (lectSeleccion < 1 || lectSeleccion > 5)
+                    if (lectSeleccion < 1 || lectSeleccion > 4)
                     {
                         throw new Exception();
                     }
@@ -50,9 +62,9 @@ namespace CoreBancario
                     Console.WriteLine("Introduzca una opción válida", Color.Red);
                 }
 
-            } while (lectSeleccion < 1 || lectSeleccion > 5);
+            } while (lectSeleccion < 1 || lectSeleccion > 4);
 
-            //llamada del switch que presenta el menú de la opción seleccionada
+            //Llamada del switch que presenta el menú de la opción seleccionada
             SwitchManejo(lectSeleccion);
         }
 
@@ -60,31 +72,28 @@ namespace CoreBancario
         {
             switch (lectSeleccion)
             {
+                //Cada switch representa a quien se le realizara un cambio
                 case 1:
                     
                     Console.Clear();
                     EscribirOpciones("usuario");
                     break;
                 case 2:
-                    
-                    Console.Clear();
-                    EscribirOpciones("perfil");
-                    break;
-                case 3:
-                    
+
                     Console.Clear();
                     EscribirOpciones("cliente");
                     break;
-                case 4:
-                   
+                case 3:
+
                     Console.Clear();
                     EscribirOpciones("cuenta");
                     break;
-                case 5:
-                    
+                case 4:
+
                     Console.Clear();
                     EscribirOpciones("transacción");
                     break;
+               
 
             }
         }
@@ -126,6 +135,7 @@ namespace CoreBancario
             switch (lectSeleccion)
             {
                 case 1:
+                    //CREAR
                     switch (opcion)
                     {
                         case "usuario":
@@ -133,8 +143,11 @@ namespace CoreBancario
                             ConsoleKeyInfo continuar;
                             do
                             {
-                                Usuario usuario = new Usuario("Crear");
-                                usuario.CrearUsuario();
+                                //TODO: LogIN a usuario para ver si tiene permiso de crear usuarios
+                                //TODO: utilizar el metodo CrearPerfil de la clase Perfil para crearlo
+
+                                /*Usuario usuario = new Usuario("Cr);ear
+                                usuario.CrearUsuario();*/
 
                                 Console.WriteLine("Registrar otro usuario: s");
                                 Console.WriteLine("Salir: n");
@@ -156,72 +169,51 @@ namespace CoreBancario
 
                             break;
 
-                        case "perfil":
-                            do
-                            {
-                                Perfil perfil = new Perfil("Crear");
-
-                                perfil.CrearPerfil();
-
-                                Console.WriteLine("Registrar otro perfil: s");
-                                Console.WriteLine("Salir: n");
-
-                                do
-                                {
-                                    continuar = Console.ReadKey(true);
-                                    if (continuar.Key == ConsoleKey.S || continuar.Key == ConsoleKey.N)
-                                    {
-                                        Console.WriteLine(continuar.KeyChar);
-                                        break;
-                                    }
-                                } while (true);
-
-                            } while (continuar.Key == ConsoleKey.S);
-
-                            Console.Clear();
-                            EscribirOpciones(opcion);
-                            break;
-
                         case "cliente":
+                            //TODO: crear cliente
                             break;
 
                         case "cuenta":
+                            //TODO: crear cuentas
                             break;
 
                         case "transacción":
+                            //TODO: crear transaccion
                             break;
                     }
 
                     break;
                 case 2:
+                    //LEER
                     switch (opcion)
                     {
+                        //TODO: leer klk dice el mamaguevo del usuario
                         case "usuario":
                             break;
-
-                        case "perfil":
-                            break;
-
+                        //TODO: leer estado de cliente
                         case "cliente":
                             break;
 
+                        //TODO: leer estado de cuenta
                         case "cuenta":
                             break;
 
+                        //TODO: leer historial de transacciones
                         case "transacción":
                             break;
                     }
 
                     break;
                 case 3:
+                    //ACTUALIZAR
                     switch (opcion)
                     {
                         case "usuario":
                             ConsoleKeyInfo continuar;
                             do
                             {
-                                Usuario usuario = new Usuario("Actualizar");
-                                usuario.ActualizarUsuario();
+                                /*Usuario usuario = new Usuario("Actualizar");
+                                usuario.ActualizarUsuario();*/
 
                                 Console.WriteLine("Actualizar otro usuario: s");
                                 Console.WriteLine("Salir: n");
@@ -242,66 +234,41 @@ namespace CoreBancario
                             EscribirOpciones(opcion);
 
                             break;
-
-                        case "perfil":
-                            do
-                            {
-                                Perfil perfil = new Perfil("Actualizar");
-
-                                perfil.ActualizarPerfil();
-
-                                Console.WriteLine("Actualizar otro perfil: s");
-                                Console.WriteLine("Salir: n");
-
-                                do
-                                {
-                                    continuar = Console.ReadKey(true);
-                                    if (continuar.Key == ConsoleKey.S || continuar.Key == ConsoleKey.N)
-                                    {
-                                        Console.WriteLine(continuar.KeyChar);
-                                        break;
-                                    }
-                                } while (true);
-
-                            } while (continuar.Key == ConsoleKey.S);
-
-                            Console.Clear();
-                            EscribirOpciones(opcion);
-                            break;
-
+                        //TODO: actualizar cliente
                         case "cliente":
                             break;
 
+                        //TODO: actualizar cuenta
                         case "cuenta":
                             break;
-
+                        /* lo toy comentando por siaca
                         case "transacción":
-                            break;
+                            break;*/
                     }
                     break;
 
                 case 4:
+                    //ELIMINAR
                     switch (opcion)
                     {
+                        //TODO: eliminar usuario
                         case "usuario":
                             break;
 
-                        case "perfil":
-                            break;
-
+                        //TODO: eliminar cliente
                         case "cliente":
                             break;
-
+                        //TODO: eliminar cuenta
                         case "cuenta":
                             break;
-
+                        /* Lo toy comentando por siaca
                         case "transacción":
-                            break;
+                            break;*/
                     }
 
                     break;
                 case 5:
-                  
+                  //DAR ATRAS
                     Console.Clear();
                     MenuPrincipal(lectSeleccion);
                     break;

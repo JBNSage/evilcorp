@@ -24,7 +24,7 @@ namespace CoreBancario
 
         public string sucursal { get; set; }
 
-        public Usuario(string accion)
+        public void PedirDatos(string accion)
         {
             Console.Clear();
 
@@ -52,8 +52,7 @@ namespace CoreBancario
         {
             
                
-                SqlConnection sql = new SqlConnection();
-                sql.ConnectionString = ConfigurationManager.ConnectionStrings["cS"].ToString();
+                SqlConnection sql = new SqlConnection(ConfigurationManager.ConnectionStrings["cS"].ToString());
                 sql.Open();
                 SqlCommand cmd = new SqlCommand("spCrearUsuario", sql);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -81,9 +80,53 @@ namespace CoreBancario
             
         }
 
-        public void LeerUsuario()
+        public bool LogIn()
         {
+            Console.Clear();
+            Console.Write("Inserte su cedula: ");
+            noDocumento = Console.ReadLine();
 
+            SqlConnection sql = new SqlConnection(ConfigurationManager.ConnectionStrings["cS"].ToString());
+            sql.Open();
+            SqlCommand cmd = new SqlCommand("spLeerUsuario", sql);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@cedula", noDocumento);
+            cmd.Parameters.Add("@return", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.ReturnValue;
+            cmd.ExecuteNonQuery();
+
+            if ((int)cmd.Parameters["@return"].Value == 1)
+            {
+                // Console.WriteLine("\nEste usuario ya existe\n", Color.Red);
+                Console.Write("Inserte su contraseña: ");
+                contraseña = Console.ReadLine();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                string dbContraseña=null;
+                while (dr.Read())
+                {
+                    dbContraseña = dr["Contraseña"].ToString();
+                };
+                if (contraseña== dbContraseña)
+                {
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("\nUSUARIO O CONTRASEÑA ERRONEA!\n", Color.Red);
+                    Console.WriteLine("presione cualquier tecla para continuar... ");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.Write("Inserte su contraseña: ");
+                contraseña = Console.ReadLine();
+                Console.WriteLine("\nUSUARIO O CONTRASEÑA ERRONEA!\n", Color.Red);
+                Console.WriteLine("presione cualquier tecla para continuar... ");
+                contraseña =null;
+                return false;
+            }
+            
         }
 
         public bool ActualizarUsuario()
