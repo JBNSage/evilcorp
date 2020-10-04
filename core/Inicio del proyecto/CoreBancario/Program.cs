@@ -146,8 +146,9 @@ namespace CoreBancario
                                 //TODO: LogIN a usuario para ver si tiene permiso de crear usuarios
                                 //TODO: utilizar el metodo CrearPerfil de la clase Perfil para crearlo
 
-                                /*Usuario usuario = new Usuario("Cr);ear
-                                usuario.CrearUsuario();*/
+                                Usuario usuario = new Usuario();
+                                usuario.PedirDatos("Crear");
+                                usuario.CrearUsuario();
 
                                 Console.WriteLine("Registrar otro usuario: s");
                                 Console.WriteLine("Salir: n");
@@ -189,11 +190,35 @@ namespace CoreBancario
                     {
                         //TODO: leer klk dice el mamaguevo del usuario
                         case "usuario":
+
+                            ConsoleKeyInfo continuar;
+                            do
+                            {
+                                Usuario usuario = new Usuario();
+                                usuario.BuscarUsuario();
+
+                                Console.WriteLine("Buscar otro usuario: s");
+                                Console.WriteLine("Salir: n");
+
+                                do
+                                {
+                                    continuar = Console.ReadKey(true);
+                                    if (continuar.Key == ConsoleKey.S || continuar.Key == ConsoleKey.N)
+                                    {
+                                        Console.WriteLine(continuar.KeyChar);
+                                        break;
+                                    }
+                                } while (true);
+
+                            } while (continuar.Key == ConsoleKey.S);
+
+                            Console.Clear();
+                            EscribirOpciones(opcion);
+
                             break;
                         //TODO: leer estado de cliente
                         case "cliente":
                             break;
-
                         //TODO: leer estado de cuenta
                         case "cuenta":
                             break;
@@ -212,8 +237,9 @@ namespace CoreBancario
                             ConsoleKeyInfo continuar;
                             do
                             {
-                                /*Usuario usuario = new Usuario("Actualizar");
-                                usuario.ActualizarUsuario();*/
+                                Usuario usuario = new Usuario();
+                                usuario.PedirDatos("Actualizar");
+                                usuario.ActualizarUsuario();
 
                                 Console.WriteLine("Actualizar otro usuario: s");
                                 Console.WriteLine("Salir: n");
