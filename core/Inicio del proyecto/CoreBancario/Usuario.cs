@@ -98,7 +98,36 @@ namespace CoreBancario
             {
                 // Console.WriteLine("\nEste usuario ya existe\n", Color.Red);
                 Console.Write("Inserte su contraseña: ");
-                contraseña = Console.ReadLine();
+                //contraseña = Console.ReadLine();
+
+                // Aqui se pide la contraseña pero no en texto plano
+                StringBuilder vcompleto = new StringBuilder();
+                ConsoleKeyInfo vnombre;
+                do
+                {
+                    vnombre = Console.ReadKey(true);
+
+                    // Para borrar
+                    if (vnombre.KeyChar == 8 && vcompleto.Length > 0)
+                    {
+                        vcompleto.Length--;
+                        Console.Write("\b \b");
+                    }
+
+                    // Para hacer type
+                    else if (vnombre.KeyChar != 13 && vnombre.KeyChar != 8)
+                    {
+                        try
+                        {
+                            vcompleto.Append(vnombre.KeyChar);
+                            Console.Write("*");
+                        }
+                        catch { }
+                    }
+                } while (vnombre.KeyChar != 13);
+                
+                contraseña = Convert.ToString(vcompleto);
+
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 string dbContraseña=null;

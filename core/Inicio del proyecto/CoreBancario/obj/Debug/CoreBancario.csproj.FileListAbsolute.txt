@@ -31,3 +31,14 @@ C:\Users\Juan Luis\Desktop\evilcorp\core\Inicio del proyecto\CoreBancario\obj\De
 C:\Users\Juan Luis\Desktop\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.csproj.CopyComplete
 C:\Users\Juan Luis\Desktop\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.exe
 C:\Users\Juan Luis\Desktop\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.pdb
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\bin\Debug\CoreDataBase.mdf
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\bin\Debug\CoreDataBase_log.ldf
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\bin\Debug\CoreBancario.exe.config
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\bin\Debug\CoreBancario.exe
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\bin\Debug\CoreBancario.pdb
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\bin\Debug\Colorful.Console.dll
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.csprojAssemblyReference.cache
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.csproj.CoreCompileInputs.cache
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.csproj.CopyComplete
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.exe
+C:\Users\Jack Cruz\Documents\GitHub\evilcorp\core\Inicio del proyecto\CoreBancario\obj\Debug\CoreBancario.pdb
