@@ -172,6 +172,31 @@ namespace CoreBancario
 
                         case "cliente":
                             //TODO: crear cliente
+                            
+                            do
+                            {
+                                Cliente cliente = new Cliente();
+                                cliente.PedirDatos(opcion);
+                                cliente.CrearCliente();
+
+                                Console.Write("\n¿Desea crear otro cliente? (s/n) ");
+
+                                if (Console.ReadLine() != "s")
+                                {
+                                    Console.Write("\n¿Desea volver al menú principal? (s/n) ");
+                                    if (Console.ReadLine() != "s")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.Clear();
+                                        MenuPrincipal(lectSeleccion);
+                                    }
+                                    break;
+                                }
+
+                            } while (true);
                             break;
 
                         case "cuenta":
@@ -218,6 +243,28 @@ namespace CoreBancario
                             break;
                         //TODO: leer estado de cliente
                         case "cliente":
+                            do
+                            {
+                                Cliente cliente = new Cliente();
+                                cliente.LeerCliente();
+
+                                Console.Write("\n¿Desea consultar otro cliente? (s/n) ");
+
+                                if (Console.ReadLine() != "s")
+                                {
+                                    Console.Write("\n¿Desea volver al menú principal? (s/n) ");
+                                    if (Console.ReadLine() != "s")
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.Clear();
+                                        MenuPrincipal(lectSeleccion);
+                                    }
+                                    break;
+                                }
+                            } while (true);
                             break;
                         //TODO: leer estado de cuenta
                         case "cuenta":

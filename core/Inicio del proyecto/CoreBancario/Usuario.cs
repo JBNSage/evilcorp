@@ -190,10 +190,12 @@ namespace CoreBancario
 
             if ((int) cmd.Parameters["@return"].Value == 1)
             {
+
                 cmd.Parameters.Clear();
                 cmd.CommandText = "spFiltrarUsuario";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@noDocumento", noDocumento);
+
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 Console.WriteLine("\nUsuario encontrado!", Color.Green);
